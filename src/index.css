@@ -2,95 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* D-TRUST Design System - Command Center Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    /* Core backgrounds - deep charcoal command center */
+    --background: 220 20% 8%;
+    --foreground: 210 40% 96%;
+    
+    /* Cards - elevated surfaces */
+    --card: 220 18% 11%;
+    --card-foreground: 210 40% 96%;
+    
+    /* Popovers */
+    --popover: 220 18% 11%;
+    --popover-foreground: 210 40% 96%;
+    
+    /* Primary - electric cyan for verified/truth states */
+    --primary: 190 90% 50%;
+    --primary-foreground: 220 20% 8%;
+    
+    /* Secondary - muted surfaces */
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 210 40% 85%;
+    
+    /* Muted - subtle backgrounds */
+    --muted: 220 15% 14%;
+    --muted-foreground: 215 20% 55%;
+    
+    /* Accent - amber for attention/warnings */
+    --accent: 38 95% 55%;
+    --accent-foreground: 220 20% 8%;
+    
+    /* Destructive - critical alerts */
+    --destructive: 0 75% 55%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    
+    /* Success - verified/consensus reached */
+    --success: 145 70% 45%;
+    --success-foreground: 220 20% 8%;
+    
+    /* Warning - pending states */
+    --warning: 38 95% 55%;
+    --warning-foreground: 220 20% 8%;
+    
+    /* Info - data/oracle states */
+    --info: 210 90% 55%;
+    --info-foreground: 210 40% 98%;
+    
+    /* Border and inputs */
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 190 90% 50%;
+    
     --radius: 0.5rem;
+    
+    /* Oracle status colors */
+    --oracle-active: 145 70% 45%;
+    --oracle-pending: 38 95% 55%;
+    --oracle-offline: 0 75% 55%;
+    
+    /* Consensus gradient */
+    --gradient-consensus: linear-gradient(135deg, hsl(190 90% 50% / 0.2) 0%, hsl(145 70% 45% / 0.2) 100%);
+    --gradient-alert: linear-gradient(135deg, hsl(0 75% 55% / 0.15) 0%, hsl(38 95% 55% / 0.15) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 20% 8%) 0%, hsl(220 18% 6%) 100%);
+    
+    /* Glow effects */
+    --glow-primary: 0 0 30px hsl(190 90% 50% / 0.3);
+    --glow-success: 0 0 30px hsl(145 70% 45% / 0.3);
+    --glow-warning: 0 0 30px hsl(38 95% 55% / 0.3);
+    --glow-alert: 0 0 30px hsl(0 75% 55% / 0.3);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar - darker command panel */
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 190 90% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 190 90% 50%;
   }
 
+  /* No light mode - this is a command center */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Same as root - consistent dark theme */
   }
 }
 
@@ -100,6 +98,161 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Monospace for data */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Command center panel */
+  .panel {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .panel-header {
+    @apply px-4 py-3 border-b border-border flex items-center justify-between;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Status indicators */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-active {
+    @apply bg-success;
+    box-shadow: var(--glow-success);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .status-pending {
+    @apply bg-warning;
+    box-shadow: var(--glow-warning);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  .status-critical {
+    @apply bg-destructive;
+    box-shadow: var(--glow-alert);
+    animation: pulse-glow 1s ease-in-out infinite;
+  }
+
+  /* Data grid styling */
+  .data-grid {
+    @apply grid gap-4;
+  }
+
+  .data-cell {
+    @apply bg-muted/50 rounded-md p-3 border border-border/50;
+  }
+
+  .data-label {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1;
+  }
+
+  .data-value {
+    @apply text-xl font-bold font-mono;
+  }
+
+  /* Consensus meter */
+  .consensus-bar {
+    @apply h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .consensus-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--success)) 100%);
+  }
+
+  /* Oracle cards */
+  .oracle-card {
+    @apply p-4 rounded-lg border border-border bg-card/50 hover:bg-card transition-colors;
+  }
+
+  /* Timeline styling */
+  .timeline-item {
+    @apply relative pl-6 pb-6 border-l border-border last:pb-0;
+  }
+
+  .timeline-dot {
+    @apply absolute left-0 top-0 w-3 h-3 rounded-full -translate-x-1/2 border-2 border-background;
+  }
+
+  /* Map container */
+  .map-container {
+    @apply relative rounded-lg overflow-hidden bg-muted/30;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(var(--warning) / 0.05) 0%, transparent 40%);
+  }
+
+  /* Glowing borders for active states */
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3), var(--glow-primary);
+  }
+
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/30 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+}
+
+@layer utilities {
+  /* Animation keyframes */
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--success)) 100%);
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-card/80 backdrop-blur-md;
   }
 }
